@@ -1,5 +1,7 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+
+// require hashed out
+// require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -16,14 +18,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
-form.addEventListener("submit", function(event) {
-    let pilotNameInput = document.querySelector("input[name=pilotName]");
-    let copilotNameInput = document.querySelector("input[name=copilot]");
-    let fuelLevelInput = document.querySelector("input[name=fuelLevel]")
-    let cargoMassInput = document.querySelector("input[name=cargoMass]")
-    if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
-       alert("All fields are required!");
-       event.preventdefault() }})
  
 function validateInput(testInput) {
     
