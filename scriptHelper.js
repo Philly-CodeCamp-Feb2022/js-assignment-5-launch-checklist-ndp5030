@@ -18,12 +18,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
 form.addEventListener("submit", function(event) {
     let pilotNameInput = document.querySelector("input[name=pilotName]");
-    let coPilotNameInput = document.querySelector("input[name=coPilot]");
-    let fuelLevelInput = document.querySelector("input[level=fuelLevel]")
-    let cargoMassInput = document.querySelector("input[mass=cargoMass")
-    if (pilotNameInput.value === "" || coPilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
+    let copilotNameInput = document.querySelector("input[name=copilot]");
+    let fuelLevelInput = document.querySelector("input[name=fuelLevel]")
+    let cargoMassInput = document.querySelector("input[name=cargoMass]")
+    if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
        alert("All fields are required!");
-
+       event.preventdefault() }})
+ 
 function validateInput(testInput) {
     
 }
