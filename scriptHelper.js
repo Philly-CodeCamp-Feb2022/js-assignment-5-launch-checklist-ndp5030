@@ -16,8 +16,16 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
    */
 }
 
+form.addEventListener("submit", function(event) {
+    let pilotNameInput = document.querySelector("input[name=pilotName]");
+    let coPilotNameInput = document.querySelector("input[name=coPilot]");
+    let fuelLevelInput = document.querySelector("input[level=fuelLevel]")
+    let cargoMassInput = document.querySelector("input[mass=cargoMass")
+    if (pilotNameInput.value === "" || coPilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
+       alert("All fields are required!");
+
 function validateInput(testInput) {
-   
+    
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
