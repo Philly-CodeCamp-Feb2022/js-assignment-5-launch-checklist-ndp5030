@@ -1,17 +1,20 @@
 // Write your JavaScript code here!
 
+const { myFetch, pickPlanet } = require("./scriptHelper");
+
 window.addEventListener("load", function () {
 
-    //    let listedPlanets;
-    //    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-    //    let listedPlanetsResponse;
-    //    listedPlanetsResponse.then(function (result) {
-    //        listedPlanets = result;
-    //        console.log(listedPlanets);
-    //    }).then(function () {
-    //        console.log(listedPlanets);
-    //        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-    //    })
+       let listedPlanets;
+       // Set listedPlanetsResponse equal to the value returned by calling myFetch()
+       let listedPlanetsResponse = myFetch() // document.getElementById();
+       listedPlanetsResponse.then(function (result) {
+           listedPlanets = result;
+           console.log(listedPlanets);
+       }).then(function () {
+           console.log(listedPlanets);
+           // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
+            listedPlanets[pickPlanet()]
+        })
 
     let form = document.querySelector('form');
 
@@ -72,15 +75,6 @@ window.addEventListener("load", function () {
             cargoInputStatus.innerHTML = `Cargo mass is ${cargoMassInput.value}. Cargo mass is good for take off`
         }
 
-
-        // if fuel level is below 10000 update status failed (either below or above)
-        // if cargo mass is above 10000 update status failed (either below or above)
-    
-        // if fuel level > 10000 and cargo mass below 10000 
-        // if fuel level > 10000 and cargo mass is greater 10000 -> 
-        // if fuel level < 10000 and cargo mass below 10000 -> 
-        // if fuel level < 10000 and cargo mass is greater 10000 -> 
         event.preventDefault()
     })
-    
 });
