@@ -24,7 +24,9 @@ window.addEventListener("load", function () {
         let pilotInputStatus = document.getElementById("pilotStatus");
         let copilotInputStatus = document.getElementById("copilotStatus");
         let fuelInputStatus = document.getElementById("fuelStatus");
-        let cargoMassStatus = document.getElementById("cargoStatus");
+        let cargoInputStatus = document.getElementById("cargoStatus");
+        let updatedStatus = document.getElementById("launchStatus");
+        let updatedFaultyItems = document.getElementById("faultyItems")
 
         if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" || cargoMassInput.value === "") {
             alert("All fields are required!");
@@ -37,21 +39,33 @@ window.addEventListener("load", function () {
         } else if (isNaN(cargoMassInput.value)) {
             alert('Cargo Mass should be a number')
         } else if (fuelLevelInput.value < 10000 && cargoMassInput.value > 10000) {
+            updatedStatus.style.color = 'red'
+            updatedStatus.innerHTML = 'Shuttle is not ready for launch'
+            updatedFaultyItems.style.visibility = 'visible'
             pilotInputStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready for take off`
             copilotInputStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready for take off`
-            fuelInputStatus.innerHTML = `Fuel status must be greater than 10,000 for take off`
-            cargoInputStatus.innerHTML = `Cargo mass must be less than 10,000 for take off`
+            fuelInputStatus.innerHTML = `Fuel status is ${fuelLevelInput.value}. It must be greater than 10,000 for take off`
+            cargoInputStatus.innerHTML = `Cargo mass is ${cargoMassInput.value}. It must be less than 10,000 for take off`
         } else if (fuelLevelInput.value < 10000) {
+            updatedStatus.style.color = 'red'
+            updatedStatus.innerHTML = 'Shuttle is not ready for launch'
+            updatedFaultyItems.style.visibility = 'visible'
             pilotInputStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready for take off`
             copilotInputStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready for take off`
             fuelInputStatus.innerHTML = `Fuel status is ${fuelLevelInput.value}. It must be greater than 10,000 for take off`
             cargoInputStatus.innerHTML = `Cargo mass is ${cargoMassInput.value}. Cargo mass is good for take off`
         } else if (cargoMassInput.value >10000) {
+            updatedStatus.style.color = 'red'
+            updatedStatus.innerHTML = 'Shuttle is not ready for launch'
+            updatedFaultyItems.style.visibility = 'visible'
             pilotInputStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready for take off`
             copilotInputStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready for take off`
             fuelInputStatus.innerHTML = `Fuel status is ${fuelLevelInput.value}. Fuel level is good for take off`
             cargoInputStatus.innerHTML = `Cargo mass is ${cargoMassInput.value}. It must be less than 10,000 for take off`
         } else if (fuelLevelInput.value > 10000 && cargoMassInput.value < 10000) {
+            updatedStatus.style.color = 'green'
+            updatedStatus.innerHTML = 'Shuttle is ready for launch'
+            updatedFaultyItems.style.visibility = 'hidden'
             pilotInputStatus.innerHTML = `Pilot ${pilotNameInput.value} is ready for take off`
             copilotInputStatus.innerHTML = `Co-pilot ${copilotNameInput.value} is ready for take off`
             fuelInputStatus.innerHTML = `Fuel status is ${fuelLevelInput.value}. Fuel level is good for take off`
