@@ -1,21 +1,38 @@
 // Write your JavaScript code here!
 
-const { myFetch, pickPlanet } = require("./scriptHelper");
 
 window.addEventListener("load", function () {
 
-       let listedPlanets;
-       // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-       let listedPlanetsResponse = myFetch() // document.getElementById();
-       listedPlanetsResponse.then(function (result) {
-           listedPlanets = result;
-           console.log(listedPlanets);
-       }).then(function () {
-           console.log(listedPlanets);
-           // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-            listedPlanets[pickPlanet()]
-        })
+    // pickPlanet function moved from scriptHelper
+    function pickPlanet(planets) {
+        // math function to generate random number between 0 and 5
+        let randomIndex = Math.floor(Math.random() * planets.length);
+        return planets[randomIndex]
+    }
 
+    fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        response.json().then( function(jsonArray) {
+            console.log(jsonArray);
+
+            let selectedPlanet = pickPlanet(jsonArray)
+            //jsonArray or json
+          // moved from scripthelper  
+            let updatedMissionTarget = document.getElementById('missionTarget')
+            updatedMissionTarget.innerHTML = `
+            <ol>
+            <li>Name: ${selectedPlanet.name} </li>
+            <li>Diameter: ${selectedPlanet.diameter} </li>
+            <li>Star: ${selectedPlanet.star}</li>
+            <li>Distance from Earth: ${selectedPlanet.distance} </li>
+            <li>Number of Moons: ${selectedPlanet.moons} </li>
+        </ol>
+        <img src="${selectedPlanet.image}"> `})
+
+               });
+           
+
+       
+    
     let form = document.querySelector('form');
 
     form.addEventListener("submit", function (event) {

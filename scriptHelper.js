@@ -4,22 +4,22 @@
 // 
 // was having errors with launch status 
 //
-// require('isomorphic-fetch');
+require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
    // In CH27 they had the innerhtml in the event listener. Should lines 12-21 be in the script.js?
-    let updatedMissionTarget = document.getElementById('missionTarget')
-    updatedMissionTarget.innerHTML = `
-    <ol>
-    <li>Name: ${json.name} </li>
-    <li>Diameter: ${json.diameter} </li>
-    <li>Star: ${json.star}</li>
-    <li>Distance from Earth: ${json.distance} </li>
-    <li>Number of Moons: ${json.moons} </li>
-</ol>
-<img src="${json.imageUrl}"> `}
-
+//    let updatedMissionTarget = document.getElementById('missionTarget')
+//    updatedMissionTarget.innerHTML = `
+//    <ol>
+//    <li>Name: ${json.name} </li>
+//    <li>Diameter: ${json.diameter} </li>
+//    <li>Star: ${json.star}</li>
+//    <li>Distance from Earth: ${json.distance} </li>
+//    <li>Number of Moons: ${json.moons} </li>
+// </ol>
+// <img src="${json.imageUrl}"> `
+}
 
  
 function validateInput(testInput) {
@@ -45,11 +45,11 @@ async function myFetch() {
 
 // html id="missionTarget"
 
-function pickPlanet(planets) {
-    // math function to generate random number between 0 and 5
-    let randomNumber = Math.floor(Math.random() * 5);
-    return randomNumber
-}
+// function pickPlanet(planets) {
+//     // math function to generate random number between 0 and 5
+//     let randomNumber = Math.floor(Math.random() * 5);
+//     return randomNumber
+// }
 
 module.exports.addDestinationInfo = addDestinationInfo;
 module.exports.validateInput = validateInput;
